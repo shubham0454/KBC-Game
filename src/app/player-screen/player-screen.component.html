@@ -1,0 +1,64 @@
+<div class="container-fluid kbc-game">
+  <div class="row">
+ 
+    <div class="col-md-8">
+      <div class="question-box">
+        <div class="question">
+          <h4>Q{{ currentQuestionIndex + 1 }}&nbsp;&nbsp;{{ questions[currentQuestionIndex].question }}</h4>
+        </div>
+
+        <div class="options">
+          <div
+            class="option-row"
+            *ngFor="
+              let option of questions[currentQuestionIndex].options;
+              let idx = index
+            "
+          >
+            <button
+              class="btn btn-block"
+              [ngClass]="{
+                'btn-primary': !isAnswered,
+                'btn-success':
+                  isAnswered &&
+                  option === questions[currentQuestionIndex].correctAnswer,
+                'btn-danger':
+                  isAnswered &&
+                  selectedAnswer === option &&
+                  option !== questions[currentQuestionIndex].correctAnswer
+              }"
+              (click)="submitAnswer(option)"
+              [disabled]="isAnswered"
+            >
+              {{ option }}
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="isAnswered && !gameOver">
+          <p>You've won: ₹ {{ prizeList[currentPrizeIndex] }}</p>
+          <p>Are you ready for the next question?</p>
+          <button class="btn btn-success" (click)="nextQuestion()">Yes</button>
+          <button class="btn btn-danger" (click)="endGame()">No</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4 d-none d-md-block">
+      <div class="prize-list">
+        <ul class="list-group">
+          <li
+            *ngFor="let prize of prizeList.slice().reverse(); let i = index"
+            class="list-group-item"
+            [ngClass]="{
+              'active-prize': i === prizeList.length - currentQuestionIndex - 1
+            }"
+          >
+            {{ prizeList.length - i }}. ₹ {{ prize }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

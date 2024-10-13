@@ -1,0 +1,87 @@
+.kbc-container {
+    text-align: center;
+    background-image: url('Image/background-img 1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    padding-bottom: 30px;
+    color: rgb(173, 150, 150);
+    font-size: 3rem;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(12, 16, 250), 0 0 5px rgb(25, 0, 139);
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #0a5dda;
+    box-shadow: 2px 2px 2px 1px rgb(163, 158, 240);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+  }
+  
+ 
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+  
+
+  .modal.show {
+    display: block; 
+  }
+  
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+  }
+  
+
+  .qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #a0a0a0;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  

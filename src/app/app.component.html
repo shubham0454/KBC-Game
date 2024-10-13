@@ -1,0 +1,16 @@
+<router-outlet></router-outlet>
+<div class="kbc-container">
+    <h1>Welcome to KBC Game</h1>
+    <button (click)="startGame()">Start Game</button>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': isModalOpen}">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <div class="qr-container">
+        <qr-code [value]="qrCodeDownloadLink" size="250" errorCorrectionLevel="M"></qr-code>
+        <p>Scan QR-Code to Play The KBC Game</p>
+      </div>
+    </div>
+  </div>
+  
